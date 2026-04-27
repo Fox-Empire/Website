@@ -1,38 +1,3 @@
-html {
-    font-size: 16px; /* base size */
-    background-color: #AA336A;
-}
-
-p, a {
-    font-size: 140%;
-    text-align: center;
-    margin: 0 auto;
-}
-
-.title-text {
-    text-align: center;
-    font-size: 2.8rem;
-}
-.header-text {
-    text-align: center;
-    font-size: 2.3rem;
-}
-
-.div-styling {
-    margin: 0 auto;
-    padding: 8px 12px;   /* space from the walls */
-    margin-bottom: 9px;
-}
-
-.div-styling div {
-    margin-bottom: 9px;
-    padding: 8px 12px;   /* space from the walls */
-}
-
-.div-back {
-    background-color: transparent;
-}
-
 .div-1 {
     background-color: aquamarine;
 }

@@ -1,30 +1,3 @@
-html {
-    font-size: 16px; /* base size */
-    background-color: #AA336A;
-}
-
-.title-text {
-    text-align: center;
-    font-size: 2.8rem;
-}
-.header-text {
-    text-align: center;
-    font-size: 2.1rem;
-}
-
-.normal-text {
-    font-size: 140%;
-    text-align: center;
-}
-
-.div-styling {
-    /* width: 96vw; */
-    margin: 0 auto;
-    padding-top: 1px;
-    padding-bottom: 1px;
-    margin-bottom: 9px;
-}
-
 .steam-list {
     background-color: #1b2838;
     padding: 8px;
@@ -121,20 +94,6 @@ html {
   padding: 10px;
 }
 
-.link-btn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  border-radius: 8px;
-}
-
-.link-icon {
-  width: 32px;
-  height: 32px;
-  object-fit: cover;
-  border-radius: 4px;
-}
-
 .steam-btn {
   display: flex;
   align-items: center;
@@ -147,36 +106,4 @@ html {
   height: 32px;
   object-fit: cover;
   border-radius: 4px;
-}
-
-.break {
-  flex-basis: 100%;
-  height: 0;
-}
-
-.hover-wrapper {
-  position: relative;
-  display: inline-block;
-}
-
-/* hidden by default */
-.tooltip {
-  position: absolute;
-  bottom: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-
-  background: #2a475e;
-  padding: 6px;
-  border-radius: 6px;
-
-  opacity: 0;
-  pointer-events: none;
-  transition: 0.2s;
-}
-
-/* IMPORTANT: hover stays active even when cursor moves into tooltip */
-.hover-wrapper:hover .tooltip {
-  opacity: 1;
-  pointer-events: auto;
 }
