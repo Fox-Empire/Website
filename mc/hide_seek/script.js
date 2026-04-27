@@ -50,8 +50,8 @@ maps.forEach(map => {
     const text = document.createElement("a");
     const strong = document.createElement("strong");
     strong.textContent = map;
-    text.appendChild(strong);
 
+    text.appendChild(strong);
     item.appendChild(img);
     item.appendChild(text);
 

@@ -75,3 +75,11 @@ p, a {
   object-fit: cover;
   border-radius: 4px;
 }
+
+.footer-div {
+    background-color: azure;
+    display: flex;
+    flex-wrap: wrap; /* this enables new lines */
+    justify-content: center; /* horizontal */
+    align-items: center;     /* vertical */
+}
