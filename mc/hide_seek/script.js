@@ -30,7 +30,8 @@ const maps = [
 maps.forEach(map => {
     const formattedName = map
         .replace(/'/g, "")
-        .replace(/\s+/g, "_");
+        .replace(/\s+/g, "_")
+        .toLowerCase();
 
     const item = document.createElement("div");
     item.className = "item";
