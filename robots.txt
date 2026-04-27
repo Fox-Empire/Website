@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://933152270.xyz/sitemap.xml

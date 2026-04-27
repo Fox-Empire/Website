@@ -1,0 +1,79 @@
+html {
+    font-size: 16px; /* base size */
+    background-color: #AA336A;
+}
+
+.title-text {
+    text-align: center;
+    font-size: 2.8rem;
+}
+.header-text {
+    text-align: center;
+    font-size: 2.1rem;
+}
+
+.normal-text {
+    font-size: 140%;
+    text-align: center;
+}
+
+.div-styling {
+    width: 96vw;
+    margin: 0 auto;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin-bottom: 9px;
+}
+
+.div-1 {
+    background-color: azure;
+}
+
+.div-2 {
+    background-color: azure;
+    display: flex;
+    flex-wrap: wrap; /* this enables new lines */
+    justify-content: center; /* horizontal */
+    align-items: center;     /* vertical */
+}
+
+.div-3 {
+    background-color: azure;
+    display: flex;
+    flex-wrap: wrap; /* this enables new lines */
+    justify-content: center; /* horizontal */
+    align-items: center;     /* vertical */
+}
+
+.link-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+}
+
+.link-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.steam-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+}
+
+.steam-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.break {
+  flex-basis: 100%;
+  height: 0;
+}

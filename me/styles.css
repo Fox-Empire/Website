@@ -1,0 +1,182 @@
+html {
+    font-size: 16px; /* base size */
+    background-color: #AA336A;
+}
+
+.title-text {
+    text-align: center;
+    font-size: 2.8rem;
+}
+.header-text {
+    text-align: center;
+    font-size: 2.1rem;
+}
+
+.normal-text {
+    font-size: 140%;
+    text-align: center;
+}
+
+.div-styling {
+    /* width: 96vw; */
+    margin: 0 auto;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin-bottom: 9px;
+}
+
+.steam-list {
+    background-color: #1b2838;
+    padding: 8px;
+    display: flex;
+    flex-wrap: nowrap;   /* IMPORTANT */
+    gap: 12px;
+    overflow-x: auto;    /* enables scrolling */
+    overflow-y: hidden;
+    justify-content: flex-start; /* remove centering */
+    align-items: center;
+    margin-left: 6px;
+    margin-right: 6px;
+    border-radius: 6px;
+    width: 100%;
+}
+
+.steam-item {
+    background-color: #2a475e;
+    border-radius: 6px;
+    padding: 10px;
+    min-width: 128px;
+    flex: 0 0 auto;
+    align-items: center;
+}
+.steam-item img { border-radius: 10px; }
+.steam-item div {
+    background-color: #3f5f86;
+    border-radius: 10px;
+    margin-top: 4px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.other-list {
+    background-color: #ffaabb;
+    padding: 8px;
+    display: flex;
+    flex-wrap: nowrap;   /* IMPORTANT */
+    gap: 12px;
+    overflow-x: auto;    /* enables scrolling */
+    overflow-y: hidden;
+    justify-content: flex-start; /* remove centering */
+    align-items: center;
+    margin-left: 6px;
+    margin-right: 6px;
+    border-radius: 6px;
+    width: 100%;
+}
+
+.other-item {
+    background-color: #eabcbc ;
+    outline: 2px solid #ffffff;
+    border-radius: 6px;
+    padding: 10px;
+    min-width: 128px;
+    flex: 0 0 auto;
+    align-items: center;
+}
+.other-item img { border-radius: 10px; }
+.other-item div {
+    background-color: #3f5f86;
+    border-radius: 10px;
+    margin-top: 4px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.div-back {
+    background-color: transparent;
+}
+.div-1 {
+    background-color: azure;
+}
+.div-2 {
+    background-color: azure;
+    display: flex;
+    flex-wrap: wrap; /* this enables new lines */
+    justify-content: center; /* horizontal */
+    align-items: center;     /* vertical */
+}
+.div-3 {
+    background-color: azure;
+    display: flex;
+    flex-wrap: wrap; /* this enables new lines */
+    justify-content: center; /* horizontal */
+    align-items: center;     /* vertical */
+}
+
+.scroll {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 10px;
+}
+
+.link-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+}
+
+.link-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.steam-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+}
+
+.steam-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.break {
+  flex-basis: 100%;
+  height: 0;
+}
+
+.hover-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* hidden by default */
+.tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  background: #2a475e;
+  padding: 6px;
+  border-radius: 6px;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.2s;
+}
+
+/* IMPORTANT: hover stays active even when cursor moves into tooltip */
+.hover-wrapper:hover .tooltip {
+  opacity: 1;
+  pointer-events: auto;
+}
