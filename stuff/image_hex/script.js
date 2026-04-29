@@ -144,15 +144,6 @@ function showCanvas(canvas, filename) {
 
     output.innerHTML = "";
     output.appendChild(canvas);
-
-    downloadCanvas(canvas, filename);
-}
-
-function downloadCanvas(canvas, filename) {
-    const link = document.createElement("a");
-    link.download = filename;
-    link.href = canvas.toDataURL("image/png");
-    link.click();
 }
 
 // ================= LOAD IMAGE =================
@@ -189,13 +180,6 @@ function putPixels(canvas, imageData) {
 }
 
 // ================= DOWNLOAD =================
-
-function downloadCanvas(canvas, name = "output.png") {
-    const a = document.createElement("a");
-    a.download = name;
-    a.href = canvas.toDataURL("image/png");
-    a.click();
-}
 
 // ================= CORE CIPHER =================
 
@@ -249,7 +233,6 @@ async function runCipher(noiseFile, imageFile, mode = "add") {
     const result = applyCipher(noiseCanvas, imageCanvas, mode);
 
     document.body.appendChild(result);
-    downloadCanvas(result, mode === "add" ? "encrypted.png" : "decrypted.png");
 
     return result;
 }
