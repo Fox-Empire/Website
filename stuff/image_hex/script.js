@@ -1,4 +1,3 @@
-
 // ================= TEXT → IMAGE =================
 
 function textToBytes(text) {
