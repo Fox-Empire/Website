@@ -156,8 +156,6 @@ function downloadCanvas(canvas, filename) {
     link.click();
 }
 
-alert("test");
-
 // ================= LOAD IMAGE =================
 
 function loadImage(file) {
