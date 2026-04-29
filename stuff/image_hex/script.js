@@ -1,5 +1,8 @@
 // ================= TEXT → IMAGE =================
 
+let currentCanvas = null;
+let currentFilename = "image.png";
+
 function textToBytes(text) {
     return new TextEncoder().encode(text);
 }
@@ -144,6 +147,25 @@ function showCanvas(canvas, filename) {
 
     output.innerHTML = "";
     output.appendChild(canvas);
+
+    currentCanvas = canvas;
+    currentFilename = filename;
+}
+
+function downloadImage() {
+    if (!currentCanvas) {
+        alert("No image to download!");
+        return;
+    }
+
+    currentCanvas.toBlob((blob) => {
+        const link = document.createElement("a");
+        link.download = currentFilename;
+        link.href = URL.createObjectURL(blob);
+        link.click();
+
+        URL.revokeObjectURL(link.href);
+    }, "image/png");
 }
 
 // ================= LOAD IMAGE =================
