@@ -1,7 +1,25 @@
 html {
     font-size: 16px; /* base size */
     background-color: #AA336A;
+    height: 100%;
 }
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+main {
+  flex: 1;
+  margin: 8px;
+}
+
 
 p, a {
     font-size: 140%;
@@ -62,24 +80,45 @@ p, a {
 }
 
 
-.footer-link-btn {
+
+header {
+  padding-bottom: 8px;
+}
+
+header > div {
+    background-color: #8f345f;
+    display: flex;
+    flex-wrap: wrap; /* this enables new lines */
+    align-items: center;     /* vertical */
+    padding: 6px;
+    justify-content: space-between;
+}
+
+
+footer {
+}
+
+footer > div {
+    background-color: #8f345f;
+    display: flex;
+    flex-wrap: wrap; /* this enables new lines */
+    justify-content: center; /* horizontal */
+    align-items: center;     /* vertical */
+
+    padding: 6px;
+    /* padding-top: 0px; */
+}
+
+footer .ex button {
   display: flex;
   align-items: center;
   gap: 8px;
   border-radius: 8px;
 }
 
-.footer-link-icon {
+footer .ex button img {
   width: 32px;
   height: 32px;
   object-fit: cover;
   border-radius: 4px;
-}
-
-.footer-div {
-    background-color: azure;
-    display: flex;
-    flex-wrap: wrap; /* this enables new lines */
-    justify-content: center; /* horizontal */
-    align-items: center;     /* vertical */
 }

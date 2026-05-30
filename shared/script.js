@@ -1,3 +1,9 @@
+async function loadHeader() {
+  const res = await fetch("/shared/header.html");
+  const html = await res.text();
+  document.body.insertAdjacentHTML("afterbegin", html);
+}
+
 async function loadFooter() {
   const res = await fetch("/shared/footer.html");
   const html = await res.text();
@@ -5,15 +11,28 @@ async function loadFooter() {
 }
 
 async function init() {
+  const body = document.body;
+  const main = document.createElement("main");
+
+  Array.from(body.children).forEach(el => {
+    if (el.tagName !== "HEADER" && el.tagName !== "FOOTER") {
+      main.appendChild(el);
+    }
+  });
+
+  body.appendChild(main);
+
+  
+  await loadHeader();
   await loadFooter();
 
-  document.querySelectorAll(".footer-link-btn").forEach(btn => {
+  document.querySelectorAll(".footer-div .ex button").forEach(btn => {
     const url = btn.dataset.url;
     const domain = new URL(url).hostname;
 
     const favicon = `https://www.google.com/s2/favicons?domain=${domain}&sz=64`;
 
-    btn.querySelector(".footer-link-icon").src = favicon;
+    btn.querySelector("img").src = favicon;
 
     btn.onclick = () => {
       window.location.href = url;
@@ -22,6 +41,8 @@ async function init() {
 }
 
 init();
+
+
 
 async function postCode(code, id) {
   try {
@@ -81,4 +102,17 @@ async function submitCode() {
   console.log("Entered code:", code);
 
   postCode(code, 1);
+}
+
+function goBackLevel() {
+  let path = window.location.pathname;
+
+  // remove trailing slash (except root)
+  if (path !== "/" && path.endsWith("/")) {
+    path = path.slice(0, -1);
+  }
+
+  const parent = path.substring(0, path.lastIndexOf("/")) || "/";
+
+  window.location.href = parent;
 }
