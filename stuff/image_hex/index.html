@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Text + Noise Image Tools</title>
+    <title>Text Hex</title>
     <style>
         body {
             font-family: Arial;
@@ -45,7 +45,7 @@
 </head>
 <body>
 
-<h2>Text → Image + Noise Generator</h2>
+<h2>Text Hex</h2>
 
 <!-- TEXT TO IMAGE -->
 <textarea id="textInput" placeholder="Enter text..."></textarea><br>
@@ -69,6 +69,8 @@
 
 <button onclick="encrypt()">Encrypt (Add)</button>
 <button onclick="decrypt()">Decrypt (Subtract)</button>
+
+<button onclick="downloadImage()">Download Image</button>
 
 <!-- OUTPUT AREA -->
 <div id="output"></div><hr>
