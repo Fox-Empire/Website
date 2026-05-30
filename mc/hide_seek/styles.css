@@ -1,5 +1,5 @@
 .div-1 {
-    background-color: aquamarine;
+    background-color: #8f345f;
 }
 
 .link-btn {
@@ -22,10 +22,21 @@
   align-items: center; /* centers both image and text */
   text-align: center;
   background-color: azure;
+  width: 128px;
+  height: 144px;
 }
 .item img {
-  width: 128px;
-  height: 128px;
+  max-width: 128px; min-width: 128px;
+  max-height: 96px; min-height: 96px;
+  
   object-fit: cover;
   object-position: center;
+}
+
+.mpl {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
 }
