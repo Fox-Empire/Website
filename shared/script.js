@@ -42,6 +42,24 @@ async function init() {
 
 init();
 
+async function replacePage(html) {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(html, "text/html");
+
+  // Replace title
+  const newTitle = doc.querySelector("title");
+  if (newTitle) {
+    document.title = newTitle.textContent;
+  }
+
+  // Replace main content
+  const newMain = doc.querySelector("main");
+  const currentMain = document.querySelector("main");
+
+  if (newMain && currentMain) {
+    currentMain.innerHTML = newMain.innerHTML;
+  }
+}
 
 
 async function postCode(code, id) {
@@ -88,6 +106,10 @@ async function postCode(code, id) {
       alert(json.popup || "Success!");
     } else {
       alert("Invalid Code");
+    }
+
+    if (json.valid && typeof json.html === "string") {
+      replacePage(json.html);
     }
 
   } catch (err) {

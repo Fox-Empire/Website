@@ -20,6 +20,13 @@ main {
   margin: 8px;
 }
 
+.div-0 {
+    background-color: #8f345f;
+}
+
+.div-horizontal {
+  display: flex;
+}
 
 p, a {
     font-size: 140%;
@@ -40,6 +47,7 @@ p, a {
     margin: 0 auto;
     padding: 8px 12px;   /* space from the walls */
     margin-bottom: 9px;
+    border-radius: 10px;
 }
 
 .div-styling div {
@@ -78,7 +86,6 @@ p, a {
   opacity: 1;
   pointer-events: auto;
 }
-
 
 
 header {

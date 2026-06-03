@@ -1,12 +1,12 @@
 .div-1 {
-    background-color: aquamarine;
+    background-color: #8f345f;
 }
 .div-1 > div {
     background-color: azure;
 }
 
 .div-2 {
-    background-color: aquamarine;
+    background-color: #8f345f;
     /* display: flex;
     flex-wrap: wrap; 
     justify-content: center;
