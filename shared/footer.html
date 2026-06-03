@@ -4,7 +4,7 @@
             <!-- <h1 class="header-text">External Links</h1> -->
              
             <div class="break"></div>
-            <div class="ex" style="display: flex;">
+            <div class="ex" style="display: flex; flex-wrap: wrap;">
                 <button data-url="https://discord.gg/xTqJBAJXrU"> <img /> </button>
                 <button data-url="https://www.youtube.com/@foxgirlfione"> <img /> </button>
                 <button data-url="https://www.twitch.tv/FoxGirlFione"> <img /> </button>
@@ -18,8 +18,10 @@
 
             <div class="break"></div>
             <div style="display: flex; justify-content: space-between;">
-                <input type="text" id="codeInput" placeholder="Enter secret code">
-                <button onclick="submitCode()">Submit</button>
+                <div>
+                    <input type="text" id="codeInput" placeholder="Enter secret code">
+                    <button onclick="submitCode()">Submit</button>
+                </div>
             </div>
         </div>
     </footer>
