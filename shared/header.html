@@ -5,7 +5,7 @@
                 <button id="BackButton" onclick="goBackLevel()"> Back </button>
             </span>
             <span>
-                <button onclick="alert('Why did you click this?');"> Useless button </button>
+                <button onclick="if (document.getElementById('codeInput').value.toLowerCase() === 'why?') {window.location.pathname='/why';} else {alert('Why did you click this?');}"> Useless button </button>
             </span>
         </div>
     </header>
