@@ -18,25 +18,27 @@
 
 .item {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center; /* centers both image and text */
   text-align: center;
   background-color: azure;
-  width: 128px;
-  height: 144px;
+  /* height: 144px; */
 }
 .item img {
-  max-width: 128px; min-width: 128px;
-  max-height: 96px; min-height: 96px;
+  max-width: 64px; min-width: 64px;
+  max-height: 48px; min-height: 48px;
   
   object-fit: cover;
   object-position: center;
 }
 
 .mpl {
-  display: flex;
+  display:block;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 4px;
+  max-height: 256px;
+  overflow-y: auto;   /* Vertical scrollbar when needed */
+  overflow-x: hidden; /* Optional: prevent horizontal scrolling */
 }

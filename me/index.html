@@ -25,6 +25,13 @@
     </div>
 
     <div class="div-styling div-2">
+        <h1 class="header-text">Coding Experience</h1> <div class="break"></div>
+        <p class="normal-text">C++ : </p> <p class="normal-text" id="cpp_timestamp"></p> <div class="break"></div>
+        <p class="normal-text">LUAU : </p> <p class="normal-text" id="luau_timestamp"></p> <div class="break"></div>
+        <p class="normal-text">HTML / JaveScript / CSS : </p> <p class="normal-text" id="web_timestamp"></p>
+    </div>
+
+    <div class="div-styling div-2">
         <h1 class="header-text">My Games</h1>
         <div class="break"></div>
         <div id="steam-library" class="div-styling steam-list scroll">
@@ -43,6 +50,32 @@
         </div>
     </div>
 
+    <script>
+        const cpp_timestamp = 1783969200000; // Replace with your timestamp (milliseconds)
+        const luau_timestamp = 1601967600000; // Replace with your timestamp (milliseconds)
+        const web_timestamp = 1776495600000; // Replace with your timestamp (milliseconds)
+
+        const minute = 60 * 1000;
+        const hour   = 60 * minute;
+        const day    = 24 * hour;
+        const week   = 7 * day;
+        const month  = 30.44 * day;
+        const year   = 365.25 * day;
+
+        function textStamp(timestamp) {
+            const diff = Date.now() - timestamp;
+            let text;
+            if (diff >= year)      text = `${Math.floor(diff / year)} year${Math.floor(diff / year) !== 1 ? 's' : ''}`;
+            else if (diff >= month) text = `${Math.floor(diff / month)} month${Math.floor(diff / month) !== 1 ? 's' : ''}`;
+            else if (diff >= week)  text = `${Math.floor(diff / week)} week${Math.floor(diff / week) !== 1 ? 's' : ''}`;
+            else                    text = `${Math.floor(diff / day)} day${Math.floor(diff / day) !== 1 ? 's' : ''}`;
+            return text;
+        }
+
+        document.getElementById("cpp_timestamp").textContent = textStamp(cpp_timestamp);
+        document.getElementById("luau_timestamp").textContent = textStamp(luau_timestamp);
+        document.getElementById("web_timestamp").textContent = textStamp(web_timestamp);
+    </script>
     <script src="script.js"></script>
     <script src="/shared/script.js"></script>
 </body>
