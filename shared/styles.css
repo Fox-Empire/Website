@@ -1,6 +1,6 @@
 html {
     font-size: 16px; /* base size */
-    background-color: #AA336A;
+    background: linear-gradient(180deg,#ff00ea,#0dd10d);
     height: 100%;
 }
 
@@ -93,7 +93,7 @@ header {
 }
 
 header > div {
-    background-color: #8f345f;
+    background-color: #464646;
     display: flex;
     flex-wrap: wrap; /* this enables new lines */
     align-items: center;     /* vertical */
@@ -111,7 +111,7 @@ footer {
 }
 
 footer > div {
-    background-color: #8f345f;
+    background-color: #464646;
     display: flex;
     flex-wrap: wrap; /* this enables new lines */
     justify-content: center; /* horizontal */
