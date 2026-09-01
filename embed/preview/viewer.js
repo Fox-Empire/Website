@@ -131,14 +131,23 @@ async function renderStructure(rootData) {
 const urlParams = new URLSearchParams(window.location.search);
 const nbtUrl = urlParams.get('file');
 
+console.log("Viewer loaded. Target NBT URL:", nbtUrl); // <-- Check if this prints null
+
 if (nbtUrl) {
     fetch(nbtUrl)
-        .then(res => res.arrayBuffer())
+        .then(res => {
+            console.log("Fetch response status:", res.status);
+            return res.arrayBuffer();
+        })
         .then(async buffer => {
+            console.log("Buffer received, parsing NBT...");
             const parsed = await NBT.read(buffer);
+            console.log("Parsed NBT data:", parsed.data);
             renderStructure(parsed.data);
         })
         .catch(err => console.error('Error loading NBT:', err));
+} else {
+    console.warn("No 'file' parameter found in the URL query string!");
 }
 
 function animate() {
