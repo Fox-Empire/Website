@@ -1,3 +1,13 @@
-const backBtn = document.getElementById("BackButton")
+function waitForElement(id, callback) {
+    const element = document.getElementById(id);
+    if (element) {
+        callback(element);
+    } else {
+        setTimeout(() => waitForElement(id, callback), 50);
+    }
+}
 
-backBtn.remove()
+// Usage:
+waitForElement("BackButton", (btn) => {
+    btn.remove();
+});

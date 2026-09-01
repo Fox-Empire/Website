@@ -1,3 +1,5 @@
+import * as NBT from 'https://cdn.jsdelivr.net/npm/nbtify@2.1.0/+esm';
+
 const TEXTURE_BASE_URL = 'https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.21.11/assets/minecraft/textures/block/';
 const MODEL_BASE_URL = 'https://raw.githubusercontent.com/InventivetalentDev/minecraft-assets/1.21.11/assets/minecraft/models/block/';
 
@@ -32,7 +34,7 @@ async function fetchBlockModel(cleanName) {
             modelCache[cleanName] = data;
             return data;
         }
-    } catch (e) { }
+    } catch (e) {}
     modelCache[cleanName] = null;
     return null;
 }
@@ -91,15 +93,25 @@ async function getBlockMaterial(blockName) {
     });
 }
 
-async function renderStructure(data) {
-    const { size, blocks, palette } = data;
-    const [sizeX, sizeY, sizeZ] = size;
+async function renderStructure(rootData) {
+    const size = rootData.size || [16, 16, 16];
+    const blocks = rootData.blocks || [];
+    const palette = rootData.palette || [];
+    
+    const sizeX = Number(size[0]);
+    const sizeY = Number(size[1]);
+    const sizeZ = Number(size[2]);
+    
     const structureGroup = new THREE.Group();
 
     for (const block of blocks) {
-        const [x, y, z] = block.pos;
+        const pos = block.pos;
+        const x = Number(pos[0]);
+        const y = Number(pos[1]);
+        const z = Number(pos[2]);
+
         let blockName = 'stone';
-        if (block.state !== undefined && palette && palette[block.state]) {
+        if (block.state !== undefined && palette[block.state]) {
             blockName = palette[block.state].Name || 'stone';
         }
 
@@ -122,14 +134,11 @@ const nbtUrl = urlParams.get('file');
 if (nbtUrl) {
     fetch(nbtUrl)
         .then(res => res.arrayBuffer())
-        .then(buffer => {
-            renderStructure({
-                size: [16, 16, 16],
-                blocks: [],
-                palette: []
-            });
+        .then(async buffer => {
+            const parsed = await NBT.read(buffer);
+            renderStructure(parsed.data);
         })
-        .catch(err => console.error(err));
+        .catch(err => console.error('Error loading NBT:', err));
 }
 
 function animate() {
