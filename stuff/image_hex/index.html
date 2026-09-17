@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>Text Hex</title>
+    <title>Text & Binary Hex Cipher</title>
     <style>
         body {
             font-family: Arial;
@@ -25,9 +26,14 @@
             max-width: 100%;
         }
 
-        input, button {
+        input,
+        button,
+        select {
             margin-top: 10px;
             padding: 8px;
+            background: #222;
+            color: white;
+            border: 1px solid #444;
         }
 
         hr {
@@ -41,49 +47,124 @@
             padding: 10px;
             border: 1px solid #444;
         }
+
+        .info-panel {
+            background: #1a1a1a;
+            border: 1px dashed #444;
+            padding: 10px;
+            margin-top: 10px;
+            font-family: monospace;
+            color: #0ff;
+        }
+
+        .dropdown-box {
+            margin-top: 10px;
+            padding: 15px;
+            background: #222;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border: 1px solid #444;
+            color: white;
+            width: 250px;
+        }
     </style>
 </head>
+
 <body>
 
-<h2>Text Hex</h2>
+    <h2>Text & Binary Hex Cipher</h2>
 
-<!-- TEXT TO IMAGE -->
-<textarea id="textInput" placeholder="Enter text..."></textarea><br>
-<button onclick="generateTextImage()">Generate Text Image</button>
+    <!-- FORMAT SELECTOR -->
+    <label for="mediaType">Encoding Type: </label>
+    <select id="mediaType" onchange="toggleMediaType()">
+        <option value="text">Text (0x00)</option>
+        <option value="binary">Raw Binary File (0xFF)</option>
+    </select>
 
-<hr>
+    <br><br>
 
-<!-- NOISE GENERATOR -->
-<input id="noiseSize" type="number" placeholder="Noise size (e.g. 128)">
-<button onclick="generateNoise()">Generate Color Noise</button>
+    <!-- TEXT INPUT -->
+    <div id="textSection">
+        <textarea id="textInput" placeholder="Enter text..." oninput="updateEstimates()"></textarea><br>
+    </div>
 
-<hr>
+    <!-- BINARY FILE INPUT -->
+    <div id="binarySection" style="display:none;">
+        <input type="file" id="binaryFileInput" onchange="updateBinaryFileInput()"><br>
+    </div>
 
-<p>Noise Map:</p>
-<input type="file" id="noiseFile" accept="image/*">
+    <button onclick="generateSourceMedia(); showDropdown('encode_output')">Generate Media File</button>
+    <button onclick="toggleDropdown('encode_output')">Toggle Output</button>
 
-<p>Target Image:</p>
-<input type="file" id="imageFile" accept="image/*">
+    <!-- STATS / METADATA COUNTERS -->
+    <div class="info-panel" id="statsPanel">
+        Dimensions: 0 x 0 px<br>
+        Estimated File Size: 0 KB
+    </div>
 
-<br>
+    <div id="encode_output" class="dropdown-box" style="display: none;"> </div>
 
-<button onclick="encrypt()">Encrypt (Add)</button>
-<button onclick="decrypt()">Decrypt (Subtract)</button>
+    <hr>
 
-<button onclick="downloadImage()">Download Image</button>
+    <!-- NOISE GENERATOR -->
+    <input id="noiseSize" type="number" placeholder="Noise size (e.g. 128)">
+    <button onclick="generateNoise(); showDropdown('noise_output')">Generate Color Noise</button>
+    <button onclick="toggleDropdown('noise_output')">Toggle Output</button>
 
-<!-- OUTPUT AREA -->
-<div id="output"></div><hr>
+    <div id="noise_output" class="dropdown-box" style="display: none;"> </div>
 
-<!-- DECODER -->
-<h3>Decode Image → Text</h3>
+    <hr>
 
-<input type="file" id="decodeFile" accept="image/*">
-<button onclick="generateDecodedText()">Decode Image</button>
+    <p>Noise Map:</p>
+    <input type="file" id="noiseFile" accept="image/*">
 
-<pre id="decodeOutput"></pre>
+    <p>Target Image:</p>
+    <input type="file" id="imageFile" accept="image/*">
 
-<script src="script.js"></script>
+    <br>
 
+    <button onclick="encrypt(); showDropdown('noise_offset_output')">Encrypt (Add)</button>
+    <button onclick="decrypt(); showDropdown('noise_offset_output')">Decrypt (Subtract)</button>
+
+    <button onclick="downloadImage()">Download Output</button>
+    <button onclick="toggleDropdown('noise_offset_output')">Toggle Output</button>
+
+    <!-- OUTPUT AREA -->
+    <div id="noise_offset_output" class="dropdown-box" style="display: none;"> </div>
+
+    <!-- DECODER -->
+    <h3>Decode Image → Data</h3>
+
+    <input type="file" id="decodeFile" accept="image/*">
+    <button onclick="generateDecodedText()">Decode Image</button>
+
+    <div class="info-panel" id="decodeStatsPanel">
+        Estimated File Size: 0 KB
+    </div>
+
+    <pre id="decodeOutput"></pre>
+
+    <script src="script.js"></script>
+    <script>
+        function showDropdown(id) {
+            const box = document.getElementById(id);
+            box.style.display = "flex";
+        }
+        function hideDropdown(id) {
+            const box = document.getElementById(id);
+            box.style.display = "none";
+        }
+
+        function toggleDropdown(id) {
+            const box = document.getElementById(id);
+            if (box.style.display === "none") {
+                box.style.display = "flex";
+            } else {
+                box.style.display = "none";
+            }
+        }
+    </script>
 </body>
+
 </html>
