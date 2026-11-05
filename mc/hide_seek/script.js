@@ -1,59 +1,44 @@
-const MapList = document.getElementById("MapList");
+function addMaps(id, table) {
+    const MapList = document.getElementById(id);
+    table.forEach(map => {
+        console.log(map)
+        const formattedName = map["Name"]
+            .replace(/'/g, "")
+            .replace(/\s+/g, "_")
+            .replace(/[\[\]]/g, "")
+            .toLowerCase();
 
-const maps = [
-    "Backroom's Level 0",
-    "Backroom's Level 1",
-    "Backroom's Level 2",
+        const item = document.createElement("div");
+        item.className = "item";
 
-    "Desert Temple",
-    "Jungle Temple",
+        item.onclick = () => {
+            window.location.href = `/mc/hide_seek/${formattedName}`;
+        };
 
-    "Desert Village",
-    "Taiga Village",
+        const img = document.createElement("img");
+        img.src = `/mc/hide_seek/${formattedName}/favicon.png`;
 
-    "Takopi's Home",
-    
-    "Deep State",
-    "Dock",
-    "The Sand Pyramid",
-    "Pale Oak Forest",
-    "Ring Castle",
-    "The Sanian Maze",
-    "Trial Chamber",
+        img.onerror = () => {
+            img.src = "https://placehold.co/128";
+        };
 
-    "Pillager Training Grounds",
-    "Pillager Hotel",
-    "Men Ding's Mansion",
-    "Mansion Of The Storm",
-];
+        const text = document.createElement("a");
+        const strong = document.createElement("strong");
+        strong.textContent = map["Name"];
 
-maps.forEach(map => {
-    const formattedName = map
-        .replace(/'/g, "")
-        .replace(/\s+/g, "_")
-        .toLowerCase();
+        text.appendChild(strong);
+        item.appendChild(img);
+        item.appendChild(text);
 
-    const item = document.createElement("div");
-    item.className = "item";
+        MapList.appendChild(item);
+    });
+}
 
-    item.onclick = () => {
-        window.location.href = `/mc/hide_seek/${formattedName}`;
-    };
-
-    const img = document.createElement("img");
-    img.src = `/mc/hide_seek/${formattedName}/favicon.png`;
-
-    img.onerror = () => {
-        img.src = "https://placehold.co/128";
-    };
-
-    const text = document.createElement("a");
-    const strong = document.createElement("strong");
-    strong.textContent = map;
-
-    text.appendChild(strong);
-    item.appendChild(img);
-    item.appendChild(text);
-
-    MapList.appendChild(item);
-});
+fetch('./maps.json')
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        addMaps("MapList", data["Maps"]);
+        addMaps("PlannedMapList", data["Planned"]);
+    })
+    .catch(error => console.error('Error loading maps.json:', error));

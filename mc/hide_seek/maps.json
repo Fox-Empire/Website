@@ -1,0 +1,72 @@
+{
+    "Maps": [
+        {
+            "Name": "Backrooms [Level 0]"
+        },
+        {
+            "Name": "Backrooms [Level 1]"
+        },
+        {
+            "Name": "Backrooms [Level 2]"
+        },
+        {
+            "Name": "Deep State"
+        },
+        {
+            "Name": "Desert Temple"
+        },
+        {
+            "Name": "Desert Village"
+        },
+        {
+            "Name": "Dock"
+        },
+        {
+            "Name": "Jungle Temple"
+        },
+        {
+            "Name": "Mansion Of The Storm"
+        },
+        {
+            "Name": "Men Ding's Mansion"
+        },
+        {
+            "Name": "Pale Oak Forest"
+        },
+        {
+            "Name": "Pillager Hotel"
+        },
+        {
+            "Name": "Pillager Training Grounds"
+        },
+        {
+            "Name": "Ring Castle"
+        },
+        {
+            "Name": "Roseburg"
+        },
+        {
+            "Name": "Taiga Village"
+        },
+        {
+            "Name": "Takopi's Home"
+        },
+        {
+            "Name": "The Sand Pyramid"
+        },
+        {
+            "Name": "The Sanian Maze"
+        },
+        {
+            "Name": "Trial Chamber"
+        }
+    ],
+    "Planned": [
+        {
+            "Name": "Laputa"
+        },
+        {
+            "Name": "Atlantis"
+        }
+    ]
+}
